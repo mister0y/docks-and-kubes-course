@@ -1,0 +1,11 @@
+language: generic 
+sudo: requires
+services: 
+  - docker
+
+
+before_install:
+  - docker build -t misterwhy/docks-and-kubes-course -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true misterwhy/docks-and-kubes npm run test 
